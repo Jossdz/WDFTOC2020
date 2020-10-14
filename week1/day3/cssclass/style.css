@@ -1,0 +1,22 @@
+.box {
+  height: 200px;
+  width: 200px;
+  background-color: whitesmoke;
+  /* border: 5px red;
+  border-style: ridge; */
+  border-color: black;
+  border-style: solid;
+  /* el ancho se aplica empezando por la parte superior y siguiendo las manecillas del reloj */
+  border-width: 5px 5px 40px 5px;
+  border-radius: 0 20px 0 20px;
+  padding: 10px 2px;
+  box-sizing: border-box;
+  margin: 50px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background-color: violet;
+  border-radius: 50%;
+}

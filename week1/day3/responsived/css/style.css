@@ -1,0 +1,81 @@
+/* Medida de celular */
+/* rem es una unidad relativa al tam~o de fuente del html */
+/* em es una unidad relativa al tam~o de fuente del padre del elemento */
+html {
+  font-size: 18px;
+}
+body {
+  margin: 0;
+}
+
+nav {
+  background-color: tomato;
+  height: 100px;
+  width: 100vw;
+  position: relative;
+}
+
+#logo {
+  margin: 0;
+  color: white;
+  left: 20px;
+  position: absolute;
+  top: calc(50px - 15px);
+}
+
+input {
+  display: none;
+}
+
+ul {
+  display: none;
+}
+
+li {
+}
+
+img {
+  height: 30px;
+  position: absolute;
+  top: calc(50px - 15px);
+  right: 20px;
+}
+
+/* Medida de tablet */
+@media (min-width: 768px) {
+  input {
+    display: inline;
+    position: absolute;
+    right: 70px;
+    top: calc(50px - 21px / 2);
+  }
+  img {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+/* medida de laptop */
+@media (min-width: 800px) {
+  img {
+    display: none;
+  }
+  input {
+    right: 200px;
+  }
+
+  ul {
+    display: inline;
+    color: white;
+    position: absolute;
+    right: 20px;
+    top: calc(50px - 21px / 2);
+    list-style: none;
+    margin: 0;
+    font-size: 23px;
+  }
+  li {
+    display: inline;
+    font-size: 1em;
+  }
+}
