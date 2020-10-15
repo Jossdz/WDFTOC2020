@@ -1,0 +1,47 @@
+
+body{
+    padding: 0;
+    margin: 0;
+}
+.box{
+    background: rebeccapurple;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    animation: move 5s linearsi, se m infinite;
+    /* animation-name: move;
+    animation-duration: 5s;
+    animation-iteration-count: infinite; */
+    /* transition: all 2s linear 1s; */
+    /* transition-property: all;
+    transition-duration: 2s;
+    transition-timing-function: ease-out; */
+}
+/* .box:hover{
+    background-color: rosybrown;
+    width: 300px;
+    height: 300px;
+} */
+
+@keyframes move {
+    0% {
+        left: 0;
+        top: 0;
+    }
+    25% {
+        left: calc(100vw - 200px);
+        top: 0;
+    }
+    50% {
+        left: calc(100vw - 200px);
+        top: calc(100vh - 200px);
+    }
+    75% {
+        left:0;
+        top: calc(100vh - 200px);
+    }
+    100%{
+        left:0;
+        top: 0;
+    }
+}

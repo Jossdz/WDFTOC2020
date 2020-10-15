@@ -1,0 +1,32 @@
+h1{
+    background-color: blue;
+}
+
+/* 
+li > em {
+    background-color: aqua;
+} */
+
+#first + p{
+    background-color: brown;
+}
+
+
+span, em {
+    border-bottom: 2px solid tomato;
+}
+
+input{
+    border-radius: 5px;
+}
+
+input[type='email']{
+    border: 2px solid crimson;
+}
+
+input[type='text']{
+    border: 2px solid rgb(95, 184, 95);
+}
+input[type='password']{
+    border: 2px solid blue;
+}
