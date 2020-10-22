@@ -33,12 +33,14 @@ class Character {
     this.velX *= friction
   }
   jump() {
-    console.log("jump")
-    if (this.jumps >= 2) return
+    console.log(this.jumps)
+    this.jumping = false
+    if (this.jumps >= 5) {
+      this.jumping = true
+    }
     if (!this.jumping) {
       this.jumps++
       this.velY = -this.jumpStrength
-      // this.jumping = true
     }
   }
 }
