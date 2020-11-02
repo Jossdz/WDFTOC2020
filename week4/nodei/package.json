@@ -1,0 +1,18 @@
+{
+  "name": "nodei",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cat-ascii-faces": "^2.0.0",
+    "chalk": "^4.1.0",
+    "chalk-animation": "^1.6.0",
+    "cows": "^2.1.0"
+  }
+}
