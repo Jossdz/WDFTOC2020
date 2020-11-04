@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Home :D</h1>
+  <h2>Hello {{name}}</h2>
+  <p>
+    welcome to {{{bootcamp}}}
+  </p>
+
+  {{#if login}}
+  <a href="/profile">profile</a>
+  {{/if}}
+
+  {{#unless login}}
+  <a href="/login">login</a>
+  {{/unless}}
+
+  <h2>Campus</h2>
+  <ul>
+    {{#each cities}}
+    <li>{{this}}</li>
+    {{else}}
+    <p>No cities yet!</p>
+    {{/each}}
+  </ul>
+</body>
+
+</html>
