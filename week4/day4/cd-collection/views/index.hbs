@@ -1,0 +1,12 @@
+<h1>My cd Collection</h1>
+
+<hr>
+
+<h2>Artists: </h2>
+
+<ul>
+  {{#each artists}}
+  <li><a href="/artist/{{_id}}">{{name}}</a> -
+    <a href="/artist/delete/{{_id}}">✖</a></li>
+  {{/each}}
+</ul>

@@ -1,0 +1,15 @@
+<h1>Books</h1>
+{{!-- lista de libros --}}
+{{!-- {{#each books as | book |}}
+<a href="/book/{{book._id}}">
+  <p>{{book.title}} - <i style='color:thistle'>{{book.author}}</i>
+  </p>
+</a> --}}
+{{!-- {{/each}} --}}
+{{!-- lista de libros --}}
+{{#each books }}
+<a href="/book/{{_id}}">
+  <p>{{title}} - <i style='color:thistle'>{{author}}</i>
+  </p>
+</a>
+{{/each}}

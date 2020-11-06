@@ -1,0 +1,18 @@
+<form action="/album/create" method="post">
+  <label for="title">Title
+    <input type="text" name="title" id="title">
+  </label>
+  <br>
+  <label for="description">Description
+    <input type="text" name="description" id="description">
+  </label>
+  <br>
+  <label for="artistId">Artist</label>
+  <select name="artistId" id="artistId">
+    {{#each artists}}
+    <option value="{{_id}}">{{name}}</option>
+    {{/each}}
+  </select>
+  <br>
+  <button type="submit">Create</button>
+</form>
