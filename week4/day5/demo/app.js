@@ -8,6 +8,7 @@ const hbs = require("hbs")
 const mongoose = require("mongoose")
 const logger = require("morgan")
 const path = require("path")
+const session = require("express-session")
 
 mongoose
   .connect("mongodb://localhost/demo", { useNewUrlParser: true })
@@ -30,7 +31,17 @@ app.use(logger("dev"))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
+app.use(
+  session({
+    secret: "weyuglqwe",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+  })
+)
 
+// const session = require("./config/session")
+// session(app)
 // Express View engine setup
 
 app.use(
