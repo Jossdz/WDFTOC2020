@@ -3,6 +3,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 const Artist = require("./models/Artist")
+const Album = require("./models/Album")
 
 mongoose
   .connect("mongodb://localhost/cd-collection", {
@@ -35,7 +36,8 @@ app.post("/artist/create", async (req, res) => {
 
 app.get("/artist/:artistId", async (req, res) => {
   const { artistId } = req.params
-  const artist = await Artist.findById(artistId)
+  const artist = await Artist.findById(artistId).populate("albums")
+  console.log(artist)
   res.render("artist/detail", artist)
 })
 
@@ -64,7 +66,16 @@ app.get("/album/create", async (req, res) => {
 
 app.post("/album/create", async (req, res) => {
   //TODO: Generar las referencias
-  res.send(req.body)
+  const { title, description, artistId } = req.body
+  //1. creamos el album
+  const album = await Album.create({
+    title,
+    description,
+    artist: artistId
+  })
+  //2. obtenemos el artista y le agregamos el id del album nuevo
+  await Artist.findByIdAndUpdate(artistId, { $push: { albums: album._id } })
+  res.redirect(`/artist/${artistId}`)
 })
 
 app.listen(3000, () => {
