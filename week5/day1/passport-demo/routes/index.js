@@ -6,26 +6,34 @@ const {
   loginView,
   loginProcess,
   privatePage,
-  logout
+  logout,
+  padrinoPage,
+  editorPage,
+  invitadoPage
 } = require("../controllers/auth")
+const { isAuth, isNotAuth, checkRoles } = require("../middlewares")
 // const passport = require('../config/passport')
 /* GET home page */
 router.get("/", (req, res, next) => {
-  console.log(req.user)
   res.render("index")
 })
 
 //====================Auth====================
-router.get("/signup", signupView)
-router.post("/signup", signupProcess)
-router.get("/login", loginView)
+router.get("/signup", isNotAuth, signupView)
+router.post("/signup", isNotAuth, signupProcess)
+router.get("/login", isNotAuth, loginView)
 // router.post('/login', passport.authenticate('local', {
 //   successRedirect: '/',
 //   failureRedirect: '/login'
 // }))
-router.post("/login", loginProcess)
+// Pasamos el middleware que restringe el acceso a esta ruta al post para que no nos envien informacion desde herramientas de terceros (POSTMAN)
+router.post("/login", isNotAuth, loginProcess)
 
-router.get("/private-page", privatePage)
+router.get("/private-page", isAuth, privatePage)
+
+router.get("/padrino", isAuth, checkRoles(["ELPADRINO"]), padrinoPage)
+router.get("/editor", isAuth, checkRoles(["EDITOR", "ELPADRINO"]), editorPage)
+router.get("/invitado", invitadoPage)
 
 router.get("/logout", logout)
 module.exports = router

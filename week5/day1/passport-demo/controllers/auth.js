@@ -47,7 +47,6 @@ exports.loginProcess = passport.authenticate("local", {
 })
 
 exports.privatePage = (req, res) => {
-  if (!req.user) return res.redirect("/")
   res.render("private")
 }
 
@@ -55,5 +54,17 @@ exports.logout = (req, res) => {
   req.logout()
   res.redirect("/login")
 }
+
+exports.padrinoPage = (req, res) => {
+  res.render("padrino")
+}
+exports.editorPage = (req, res) => {
+  res.render("editor")
+}
+
+exports.invitadoPage = (req, res) => {
+  res.render("invitado")
+}
+
 // Export por defecto
 // module.exports = 1
