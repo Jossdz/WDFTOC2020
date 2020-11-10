@@ -6,6 +6,7 @@ const {
   detailPlaceView
 } = require("../controllers/places")
 const Place = require("../models/Place")
+const { catchErrors } = require("../middlewares/index")
 /* GET home page */
 router.get("/", async (req, res, next) => {
   const places = await Place.find()
@@ -13,7 +14,7 @@ router.get("/", async (req, res, next) => {
 })
 
 router.get("/place/add", newPlaceForm)
-router.post("/place/add", addNewPlace)
-router.get("/place/:placeId", detailPlaceView)
+router.post("/place/add", catchErrors(addNewPlace))
+router.get("/place/:placeId", catchErrors(detailPlaceView))
 
 module.exports = router

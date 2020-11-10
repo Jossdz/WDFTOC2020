@@ -15,7 +15,7 @@ exports.addNewPlace = async (req, res) => {
     coordinates: [lng, lat]
   }
   // 3. Crear registro
-  await Place.create({
+  await Plce.create({
     name,
     description,
     location
