@@ -1,0 +1,19 @@
+<h1>{{place.name}}</h1>
+
+<p>{{place.description}}</p>
+
+
+<div id='map' style='width: 100%; height: 450px;'></div>
+
+
+<script>
+  mapboxgl.accessToken = '{{token}}';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [{{ place.location.coordinates }}],
+    zoom: 12
+  });
+
+  new mapboxgl.Marker().setLngLat([{{ place.location.coordinates }}]).addTo(map)
+</script>

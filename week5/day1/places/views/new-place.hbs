@@ -1,0 +1,43 @@
+<h1>Add a new a place</h1>
+
+<form action="/place/add" method="post">
+  <label for="name">Name:
+    <input type="text" name="name" id="name">
+  </label>
+  <label for="description">Description:
+    <input type="text" name="description" id="description">
+  </label>
+  <input type="text" name="lat" id="lat" hidden>
+  <input type="text" name="lng" id="lng" hidden>
+  <button type="submit" disabled>Add place</button>
+</form>
+
+<div id='map' style='width: 100%; height: 450px;'></div>
+<script>
+  mapboxgl.accessToken = '{{token}}';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11'
+  });
+
+  const gc = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+  })
+
+  gc.on('result', e => {
+    const { result: { center, text } } = e
+
+    const $nameInput = document.querySelector('#name')
+    $nameInput.setAttribute('placeholder', text)
+    document.querySelector('#lng').value = center[0]
+    document.querySelector('#lat').value = center[1]
+
+    document.querySelector('button').removeAttribute('disabled')
+  })
+
+
+  map.addControl(gc)
+
+  console.log(map.getCenter())
+</script>

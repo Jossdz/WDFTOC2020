@@ -1,0 +1,22 @@
+<h1>Los mejores lugares para tomar unas 🍻</h1>
+
+<div id='map' style='width: 100%; height: 450px;'></div>
+<ul>
+
+  {{#each places}}
+  <li><a href="/place/{{_id}}">{{name}}</a></li>
+  {{/each}}
+</ul>
+
+<script>
+  mapboxgl.accessToken = '{{token}}';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11'
+  });
+
+  {{#each places}}
+  new mapboxgl.Marker().setLngLat([{{ location.coordinates }}]).addTo(map)
+  {{/each}}
+
+</script>
