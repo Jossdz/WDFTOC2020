@@ -9,7 +9,11 @@ const {
   logout,
   padrinoPage,
   editorPage,
-  invitadoPage
+  invitadoPage,
+  slackInit,
+  slackCb,
+  googleInit,
+  googleCb
 } = require("../controllers/auth")
 const { isAuth, isNotAuth, checkRoles } = require("../middlewares")
 // const passport = require('../config/passport')
@@ -36,4 +40,13 @@ router.get("/editor", isAuth, checkRoles(["EDITOR", "ELPADRINO"]), editorPage)
 router.get("/invitado", invitadoPage)
 
 router.get("/logout", logout)
+
+// ==================SOCIAL===================
+
+router.get("/auth/slack", slackInit)
+router.get("/auth/slack/callback", slackCb)
+
+router.get("/auth/google", googleInit)
+router.get("/auth/google/callback", googleCb)
+
 module.exports = router

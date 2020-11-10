@@ -47,7 +47,7 @@ exports.loginProcess = passport.authenticate("local", {
 })
 
 exports.privatePage = (req, res) => {
-  res.render("private")
+  res.render("private", req.user)
 }
 
 exports.logout = (req, res) => {
@@ -65,6 +65,24 @@ exports.editorPage = (req, res) => {
 exports.invitadoPage = (req, res) => {
   res.render("invitado")
 }
+
+exports.slackInit = passport.authenticate("slack")
+exports.slackCb = passport.authenticate("slack", {
+  successRedirect: "/private-page",
+  failureRedirect: "/login"
+})
+
+exports.googleInit = passport.authenticate("google", {
+  scope: [
+    "https://www.googleapis.com/auth/userinfo.profile",
+    "https://www.googleapis.com/auth/userinfo.email"
+  ]
+})
+
+exports.googleCb = passport.authenticate("google", {
+  successRedirect: "/private-page",
+  failureRedirect: "/login"
+})
 
 // Export por defecto
 // module.exports = 1

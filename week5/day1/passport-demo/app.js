@@ -36,6 +36,7 @@ require("./config/session")(app)
 
 app.use(passport.initialize())
 app.use(passport.session())
+
 app.use(flash())
 
 // Express View engine setup
