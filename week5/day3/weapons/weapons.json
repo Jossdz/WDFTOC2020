@@ -1,0 +1,28 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "Jorge",
+      "occupation": "Hacker",
+      "weapon": "keyboard"
+    },
+    {
+      "id": 2,
+      "name": "Carlos",
+      "occupation": "Student",
+      "weapon": "Moles"
+    },
+    {
+      "name": "Ivan",
+      "occupation": "student",
+      "weapon": "Yeeeeeeeei",
+      "id": 3
+    },
+    {
+      "name": "Tommi",
+      "occupation": "Student",
+      "weapon": "Trompeta",
+      "id": 4
+    }
+  ]
+}
