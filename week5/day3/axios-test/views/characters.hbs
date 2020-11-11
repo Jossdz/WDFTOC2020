@@ -1,0 +1,22 @@
+<h1>Characters</h1>
+<ul>
+  {{#each results}}
+  <li>{{name}}</li>
+  {{/each}}
+</ul>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {{#if p}}
+    <li class="page-item">
+      <a class="page-link" href="/characters/{{p}}">Previous</a>
+    </li>
+    {{/if}}
+
+    {{#if n}}
+    <li class="page-item">
+      <a class="page-link" href="/characters/{{n}}">Next</a>
+    </li>
+    {{/if}}
+  </ul>
+</nav>
