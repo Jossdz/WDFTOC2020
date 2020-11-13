@@ -12,11 +12,12 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
     // cloudinary: cloudinary,
     cloudinary,
-    folder: 'los tocados por el dios hackerman', // The name of the folder in cloudinary
-    allowedFormats: ['jpg', 'png'],
-    // params: { resource_type: 'raw' }, => this is in case you want to upload other type of files, not just images
-    filename: function(req, file, cb) {
-        cb(null, file.originalname); // The file on cloudinary would have the same name as the original file name
+    params: (req, file) => {
+        return {
+            folder: "los tocados por hackerman",
+            allowed_formats: ["jpg", "png"],
+            public_id: `app-${file.originalname}`
+        }
     }
 });
 
