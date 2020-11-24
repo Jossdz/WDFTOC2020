@@ -1,0 +1,14 @@
+.id-card{
+  height: 150px;
+  border: 2px solid black;
+  padding: 5px;
+  display: flex;
+}
+
+.id-card img{
+  height: 100%;
+}
+
+.id-card p{
+  margin: 0 5px;
+}
