@@ -16,6 +16,8 @@ exports.createTask = async (req, res) => {
     project: projectId
   })
 
+  await Project.findByIdAndUpdate(projectId, { $push: { tasks: newTask._id } })
+
   res.status(201).json(newTask)
 }
 
